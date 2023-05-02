@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+class myarray{
+	private:
+		static const int max =100;
+		double a[max];
+		int n;
+		
+	public:
+		
+	  double get(const int index = 0)
+	  {
+	     if (index<n)  return a[index];  
+		 cout<<"\n"<<"eror!!\n";
+		 return 0;	
+	  }	
+	  
+	  void set(const int index,int value)
+	  {
+	  	 if(index<n)   a[value] = value ;
+	  	 cout<<"eror:("<<"\n";
+	  }	
+	  myarray( const double *ma,int k )
+	  {
+	  	if(k>max)
+	  	  k =max;
+	  	for(n = k--;k>= 0; k--)
+	  	{
+	  		a[k] = ma [k];
+		}
+      }
+		void print()
+		{
+			cout<<" n = "<<n<<"\n";
+			for(int i = 0; i <n; i++)
+			{
+				cout<<"a["<<i<<"] = "<<a[i]<<"\n";
+				
+			}
+		}
+	 
+};
+int main()
+{
+	double x[] ={10,2,3,4};
+	int size = sizeof(x) / sizeof(x[0]);
+	myarray d(x,size);
+	d.set(30,500);
+	d.print();
+	
+}
